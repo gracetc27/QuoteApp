@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  QuoteView.swift
 //  QuoteApp
 //
 //  Created by Grace couch on 07/04/2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct QuoteView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    QuoteView()
 }
