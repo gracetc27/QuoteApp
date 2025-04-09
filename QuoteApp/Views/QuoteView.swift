@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct QuoteView: View {
+    @State private var quoteViewModel = QuoteViewModel()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            Color.black.ignoresSafeArea()
+            VStack {
+                BigTextView(text: "Quote of the day!")
+                Spacer()
+                BigTextView(text: quoteViewModel.quote.quote)
+                Spacer()
+                BorderedNormalTextView(text: "Tap for Quote")
+                    .onTapGesture {
+                        Task {
+                            await quoteViewModel.getRandomQuote()
+                        }
+                    }
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
