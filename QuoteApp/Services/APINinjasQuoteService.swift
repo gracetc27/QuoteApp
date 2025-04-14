@@ -27,8 +27,8 @@ struct APINinjasQuoteService: QuoteService {
         return quoteKey
     }
 
-    func getQuote(url: String) async throws(QuoteError) -> Quote {
-        guard let url = URL(string: url) else {
+    func getQuote() async throws(QuoteError) -> Quote {
+        guard let url = URL(string: urlString) else {
             throw QuoteError.invalidURL
         }
         var request = URLRequest(url: url)

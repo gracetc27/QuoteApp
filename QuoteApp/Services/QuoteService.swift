@@ -8,5 +8,5 @@ import SwiftUI
 
 
 protocol QuoteService {
-    func getQuote(url: String) async throws -> Quote
+    func getQuote() async throws -> Quote
 }

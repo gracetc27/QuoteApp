@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct MockQuoteService: QuoteService {
-    func getQuote(url: String) async throws -> Quote {
-        return .defaultQuote
+    func getQuote() async throws -> Quote {
+        return .testQuote
     }
 }

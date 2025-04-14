@@ -18,7 +18,7 @@ class QuoteViewModel {
 
     func getRandomQuote() async {
         do {
-            quote = try await service.getQuote(url: APINinjasQuoteService().urlString)
+            quote = try await service.getQuote()
         } catch {
             print(error)
         }
