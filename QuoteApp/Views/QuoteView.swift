@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuoteView: View {
-    @State private var quoteViewModel = QuoteViewModel()
+    @Environment(QuoteViewModel.self) var quoteViewModel
     @State private var image: String = eclipse
     var body: some View {
         ZStack {
@@ -49,4 +49,5 @@ struct QuoteView: View {
 
 #Preview {
     QuoteView()
+        .environment(QuoteViewModel(service: MockQuoteService()))
 }
