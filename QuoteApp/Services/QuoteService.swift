@@ -1,0 +1,12 @@
+//
+//  QuoteService.swift
+//  QuoteApp
+//
+//  Created by Grace couch on 14/04/2025.
+//
+import SwiftUI
+
+
+protocol QuoteService {
+    func getQuote(url: String) async throws -> Quote
+}
