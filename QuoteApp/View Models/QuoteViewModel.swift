@@ -16,11 +16,11 @@ class QuoteViewModel {
         self.service = service
     }
 
-    func getRandomQuote() async {
+    func getRandomQuote() async throws(QuoteError) {
         do {
             quote = try await service.getQuote()
         } catch {
-            print(error)
+            throw .noData
         }
     }
 

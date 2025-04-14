@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Quote: Codable {
+struct Quote: Codable, Equatable {
     let quote, author: String
 
     enum CodingKeys: String, CodingKey {
@@ -16,6 +16,10 @@ struct Quote: Codable {
 
     static var defaultQuote: Quote {
         Quote(quote: "urm, what do you mean... why", author: "Kane Buckthorpe")
+    }
+
+    static var testQuote: Quote {
+        Quote(quote: "testing, testing, 123", author: "Grace Couch")
     }
     typealias Quotes = [Quote]
 }

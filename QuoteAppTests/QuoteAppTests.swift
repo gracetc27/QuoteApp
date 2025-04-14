@@ -10,8 +10,31 @@ import Testing
 
 struct QuoteAppTests {
 
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    @Test func successGetRandomQuoteUpdateQuote() async throws {
+        let sut = QuoteViewModel(service: MockQuoteService())
+        #expect(sut.quote == .defaultQuote)
+
+        try await sut.getRandomQuote()
+
+        let expected = Quote.testQuote
+
+        #expect(sut.quote == expected)
+    }
+
+    @Test func failGetRandomQuoteUpdateQuote() async throws {
+        let sut = QuoteViewModel(service: FailureMockQuoteService())
+        #expect(sut.quote == .defaultQuote)
+
+        await #expect(throws: QuoteError.noData) {
+            try await sut.getRandomQuote()
+        }
+        #expect(sut.quote == .defaultQuote)
+    }
+
+    struct FailureMockQuoteService: QuoteService {
+        func getQuote() async throws(QuoteError) -> Quote {
+            throw .noData
+        }
     }
 
 }

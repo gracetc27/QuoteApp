@@ -38,7 +38,7 @@ struct QuoteView: View {
                     .onTapGesture {
                         image = imageArray.randomElement() ?? eclipse
                         Task {
-                            await quoteViewModel.getRandomQuote()
+                            try await quoteViewModel.getRandomQuote()
                         }
                     }
             }

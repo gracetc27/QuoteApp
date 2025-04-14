@@ -7,14 +7,15 @@
 
 import SwiftUI
 
+enum QuoteError: Error, Equatable {
+    case invalidURL
+    case noData
+    case decodingFailed
+}
 
 struct APINinjasQuoteService: QuoteService {
 
-    enum QuoteError: Error, Equatable {
-        case invalidURL
-        case noData
-        case decodingFailed
-    }
+
     let urlString = "https://api.api-ninjas.com/v1/quotes"
     var apiKey: String {
         getApiKey()
